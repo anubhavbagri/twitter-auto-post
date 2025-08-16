@@ -53,7 +53,7 @@ async function run() {
 
   console.log("Generated tweet:", tweetText);
 
-  // sendTweet(text);
+  sendTweet(text);
 }
 
 run();
