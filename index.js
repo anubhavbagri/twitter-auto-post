@@ -53,7 +53,7 @@ async function run() {
 
   console.log("Generated tweet:", tweetText);
 
-  sendTweet(text);
+  sendTweet(tweetText);
 }
 
 run();
@@ -66,40 +66,3 @@ async function sendTweet(tweetText) {
     console.error("Error sending tweet:", error);
   }
 }
-
-// async function getLastTweet() {
-//   try {
-//     // First, get the authenticated user's information
-//     const user = await twitterClient.v2.me();
-//     const userId = user.data.id;
-//     console.log(`Getting last tweet for user: ${user.data.username} (ID: ${userId})`);
-
-//     // Calculate the start time for 24 hours ago
-//     const startTime = new Date();
-//     startTime.setDate(startTime.getDate() - 1);
-//     const startTimeISO = startTime.toISOString();
-
-//     // Get the user's timeline with the most recent tweets from the last 24 hours
-//     const tweets = await twitterClient.v2.userTimeline(userId, {
-//       max_results: 5, // Minimum of 5 results
-//       'tweet.fields': ['created_at', 'author_id', 'public_metrics'],
-//       start_time: startTimeISO
-//     });
-
-//     if (tweets.data && tweets.data.length > 0) {
-//       const lastTweet = tweets.data[0];
-//       console.log("Last tweet found:");
-//       console.log(`Tweet ID: ${lastTweet.id}`);
-//       console.log(`Created at: ${lastTweet.created_at}`);
-//       console.log(`Text: ${lastTweet.text}`);
-//       console.log(`Metrics:`, lastTweet.public_metrics);
-//       return lastTweet;
-//     } else {
-//       console.log("No tweets found for this user in the last 24 hours.");
-//       return null;
-//     }
-//   } catch (error) {
-//     console.error("Error getting last tweet:", error);
-//     return null;
-//   }
-// }
