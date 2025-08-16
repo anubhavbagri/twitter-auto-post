@@ -1,36 +1,28 @@
 name: Auto Tweet Using AI
 
+# Runs every day 10am UTC
 on:
   schedule:
-    - cron: "0 10 * * *"  # Runs every day at 10 AM
+    - cron: "0 10 * * *"
+
+  # This command allows us to run the Action automatically from the Actions tab.
   workflow_dispatch:
 
 jobs:
   build:
+    name: Auto Tweet Using AI
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@master
-
-    - name: Download counter artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: counter
-        run-id: ${{ github.event.workflow_run.id }}
-        path: ./  # Ensure the counter.txt is placed in the root directory
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Run Twitter bot
-      run: npm start
-
-    - name: Upload counter artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: counter
-        path: counter.txt
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "20.x"
+      - name: Install Dependencies
+        run: npm i
+      - name: Run Twitter bot
+        run: npm start
     env:
       TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
       TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
