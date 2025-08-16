@@ -1,9 +1,9 @@
 name: Auto Tweet Using AI
 
-# Runs every hour
+# Runs every day 10am UTC
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 10 * * *"
 
   # This command allows us to run the Action automatically from the Actions tab.
   workflow_dispatch:
