@@ -13,12 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@master
 
-    # - name: Download counter artifact
-    #   uses: actions/download-artifact@v4
-    #   with:
-    #     name: counter
-    #     run-id: ${{ github.event.workflow_run.id }}
-    #     path: ./  # Ensure the counter.txt is placed in the root directory
+    - name: Download counter artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: counter
+        run-id: ${{ github.event.workflow_run.id }}
+        path: ./  # Ensure the counter.txt is placed in the root directory
 
     - name: Install Dependencies
       run: npm install
