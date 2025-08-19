@@ -25,7 +25,7 @@ const streak = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
 async function run() {
   // Write your prompt here
   const prompt =
-    `generate content on any major festival in India on ${todayDate} (make a wish if applicable to my audience in present tense); only if festival not present then only about historical event with regards to ${todayDate} in India (fun fact if none seems applicable) as a tweet, it should not be vague and should be unique; under 270 characters and should be plain text, you can use relevant emojis`;
+    `generate content on historical event with regards to ${todayDate} in India (general fun fact if no historical event seems applicable) as a tweet, it should not be vague and should be unique; under 270 characters and should be plain text, you can use relevant emojis`;
 
   // For text-only input, use the gemini-pro model
   const response = await genAI.models.generateContent({
