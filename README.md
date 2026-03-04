@@ -1,6 +1,6 @@
 # Twitter Auto Poster Bot AI
 
-Automate your Twitter/X account to post tweets regularly using the power of AI. This project leverages Google Generative AI to generate unique content around historical events/occasions for that particular day and the Twitter API to post tweets automatically.
+Automate your Twitter/X account to post tweets regularly using the power of AI. This project leverages Google Generative AI to generate unique content around historical events/occasions for that particular day and the Twitter API to post tweets automatically according to the schedule configured.
 
 ## Features
 
